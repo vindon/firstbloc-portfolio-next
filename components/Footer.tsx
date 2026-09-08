@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import BrandBlockIcon from './BrandBlockIcon';
 
 export default function Footer() {
@@ -47,9 +48,11 @@ export default function Footer() {
           <div>
             <h3>Navigate</h3>
             <ul className="flinks">
-              <li><a href="#about">About</a></li>
-              <li><a href="#products">Products</a></li>
-              <li><a href="#solutions">Solutions</a></li>
+              <li><Link href="/#about">About</Link></li>
+              <li><Link href="/#products">Products</Link></li>
+              <li><Link href="/#solutions">Solutions</Link></li>
+              <li><Link href="/mystack">My Stack</Link></li>
+              <li><Link href="/myroadmap">Roadmap</Link></li>
             </ul>
           </div>
           <div>

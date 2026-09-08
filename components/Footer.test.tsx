@@ -8,6 +8,8 @@ describe('Footer', () => {
     expect(screen.getByRole('link', { name: 'About' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Products' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Solutions' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'My Stack' })).toHaveAttribute('href', '/mystack');
+    expect(screen.getByRole('link', { name: 'Roadmap' })).toHaveAttribute('href', '/myroadmap');
     expect(screen.getByText('© 2026 Vinoth Nataraj.')).toBeInTheDocument();
   });
 

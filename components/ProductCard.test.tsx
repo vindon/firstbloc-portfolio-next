@@ -24,7 +24,7 @@ describe('ProductCard', () => {
   });
 
   it('applies the explore modifier class for a product still in exploration', () => {
-    const product = products.find((p) => p.id === 'founder-research')!;
+    const product = products.find((p) => p.id === 'cfpb')!;
     expect(product.isExploration).toBe(true);
     render(<ProductCard product={product} />);
     expect(screen.getByText(product.stageTag)).toHaveClass('explore');

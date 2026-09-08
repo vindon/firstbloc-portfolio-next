@@ -14,7 +14,7 @@ export const products: Product[] = [
   {
     id: 'pulseguard',
     title: 'PulseGuard AI',
-    stageTag: 'Production-grade build',
+    stageTag: 'Building',
     problem: 'Social complaints escalate into PR crises before anyone on the CX team sees them.',
     description:
       'A 4-agent triage system (Sentinel → Triage → Resolver → Escalation) that watches X, Reddit, Trustpilot, and app stores for telecom CX, sanitizes PII, and routes what actually matters to a human through a clear escalation gate, keeping alert volume manageable for the team.',
@@ -46,7 +46,7 @@ export const products: Product[] = [
   {
     id: 'signalharvest',
     title: 'SignalHarvest AI',
-    stageTag: 'Multi-agent product build',
+    stageTag: 'Building',
     problem: "Early market and complaint signals sit scattered across free public sources, unread until they're expensive.",
     description:
       'A 5-agent pipeline (Sentinel, Classifier, Scorer, Curator, Publisher) that harvests, scores, and curates signals from Reddit, Google Trends, and CFPB filings into a digest — so individuals and small teams get an early-warning system without paid monitoring tools.',
@@ -64,7 +64,8 @@ export const products: Product[] = [
   {
     id: 'cfpb',
     title: 'CFPB Credit Agreement Intelligence',
-    stageTag: 'Production-grade demo',
+    stageTag: 'Planned',
+    isExploration: true,
     problem: 'Extracting terms from credit card agreements filed with regulators is still a manual, error-prone read-through.',
     description:
       'A Playwright-driven scraper feeding a two-pass extraction pipeline against a strict Pydantic schema, surfaced through a Streamlit UI — turning unstructured regulatory filings into clean, queryable data for compliance and fintech teams.',
@@ -82,7 +83,7 @@ export const products: Product[] = [
   {
     id: 'rag-portfolio',
     title: 'Enterprise RAG Portfolio',
-    stageTag: 'Production-grade portfolio',
+    stageTag: 'Building',
     problem: 'Most RAG demos fall apart the moment real enterprise document mess shows up.',
     description:
       'Five production-grade RAG builds — HR Q&A, contract review, marketing content hub, hybrid-search tech docs, and a multi-agent IT helpdesk — run on Groq inference and local Ollama embeddings, proving the pattern across genuinely different document types.',
@@ -117,8 +118,7 @@ export const products: Product[] = [
   {
     id: 'founder-research',
     title: 'Founder Research Intelligence Engine',
-    stageTag: 'In exploration',
-    isExploration: true,
+    stageTag: 'Building',
     problem: "Founders and operators need deep, current research on people and markets, but good research doesn't scale on a human analyst's time.",
     description:
       'An agentic research pipeline being evaluated as a retainer or report-based product — currently being tested against real client use cases before I commit build time to it.',
@@ -128,6 +128,24 @@ export const products: Product[] = [
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <circle cx="10.5" cy="10.5" r="6.5" />
         <line x1="15.2" y1="15.2" x2="20" y2="20" />
+      </svg>
+    ),
+  },
+  {
+    id: 'clearspend',
+    title: 'ClearSpend',
+    stageTag: 'Planned',
+    isExploration: true,
+    problem: 'Tracking personal spending in India means either logging every purchase by hand or handing a banking app your login just so it can mine your data.',
+    description:
+      'A privacy-first Android expense tracker that reads bank SMS alerts from 30+ Indian banks with on-device regex (no bank login, no UPI credentials) and parses receipt photos through on-device OCR plus a lightweight Gemini Flash step — turning scattered spending signals into a categorized budget view without a login screen in sight.',
+    techTags: ['Kotlin', 'Jetpack Compose', 'Gemini Flash', 'ML Kit OCR'],
+    demoUrl: '#',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3.5" y="6" width="17" height="13" rx="2" />
+        <path d="M3.5 9.5h17" />
+        <path d="M14.5 14.5h3.5" />
       </svg>
     ),
   },

@@ -97,6 +97,24 @@ export const products: Product[] = [
     ),
   },
   {
+    id: 'shanti-news',
+    title: 'Shanti News',
+    stageTag: 'Production-grade build',
+    problem: 'Indian news feeds optimize for outrage and clickbait, burying calm, verified reporting under sensational noise.',
+    description:
+      'A deterministic ingest and moderation pipeline that pulls from 11 verified Indian desks (The Hindu, Indian Express, PTI, Reuters India, and more), rejects clickbait through regex and heuristic scoring, and enforces editorial quotas — at least 2 constructive stories, at most 3 sensitive ones, 4+ desks represented — in every published edition.',
+    techTags: ['TypeScript', 'Node.js', 'Vitest', 'Tailwind CSS'],
+    demoUrl: 'https://ais-pre-npg7tn7nbq2nu76vuwngb7-490054790045.asia-southeast1.run.app',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="5" width="16" height="14" rx="1.5" />
+        <line x1="7" y1="9" x2="17" y2="9" />
+        <line x1="7" y1="12.5" x2="17" y2="12.5" />
+        <line x1="7" y1="16" x2="13" y2="16" />
+      </svg>
+    ),
+  },
+  {
     id: 'founder-research',
     title: 'Founder Research Intelligence Engine',
     stageTag: 'In exploration',

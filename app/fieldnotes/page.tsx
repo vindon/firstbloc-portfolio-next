@@ -8,7 +8,7 @@ import { isComingSoon, siteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Field Notes — firstbloc',
-  description: 'Real incidents from real builds across every firstbloc project — what broke, why, the fix, and the lesson that outlives the project.',
+  description: 'System incidents and architectural notes from every firstbloc build — what broke, why, the fix, and the lesson that outlives the project.',
   alternates: { canonical: `${siteUrl}/fieldnotes` },
 };
 

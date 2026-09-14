@@ -8,7 +8,7 @@ import { isComingSoon, siteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'My Stack — firstbloc',
-  description: 'The models, frameworks, and infrastructure behind every firstbloc build — plus what is deployed where and why.',
+  description: 'The technologies behind every firstbloc build, chosen for observability, cost control, and deterministic reliability in production — plus what is deployed where and why.',
   alternates: { canonical: `${siteUrl}/mystack` },
 };
 

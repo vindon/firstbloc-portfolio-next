@@ -8,7 +8,7 @@ import { isComingSoon, siteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Roadmap — firstbloc',
-  description: 'What is shipped, what is being built, and what is planned next — across every firstbloc product.',
+  description: 'What is shipped, what is being built, and what is planned next — driven by operational challenges in regulated industries across every firstbloc product.',
   alternates: { canonical: `${siteUrl}/myroadmap` },
 };
 

@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { isComingSoon } from '@/lib/site';
 
-export const alt = 'firstbloc — AI Strategy, Products & CX Automation';
+export const alt = 'firstbloc — Enterprise AI Strategy, Agentic Systems & CX Automation';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -39,10 +39,10 @@ export default function OpengraphImage() {
             lineHeight: 1.1,
           }}
         >
-          {isComingSoon ? 'New site launching soon.' : 'AI systems built for production — not for demos.'}
+          {isComingSoon ? 'New site launching soon.' : 'Bridging Enterprise Reality with Production AI Systems.'}
         </div>
-        <div style={{ display: 'flex', fontSize: 26, color: '#5B564C', marginTop: 24 }}>
-          Vinoth Nataraj — AI Strategy, Products &amp; CX Automation
+        <div style={{ display: 'flex', fontSize: 26, color: '#5B564C', marginTop: 24, maxWidth: 900 }}>
+          Vinoth Nataraj — Enterprise AI Strategy, Agentic Systems &amp; CX Automation
         </div>
       </div>
     ),

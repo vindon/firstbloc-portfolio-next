@@ -6,8 +6,10 @@ describe('Hero', () => {
   it('renders the headline and proof badge', () => {
     render(<Hero />);
     expect(
-      screen.getByRole('heading', { level: 1, name: /AI systems built for production/ })
+      screen.getByRole('heading', { level: 1, name: /Bridging Enterprise Reality with Production AI Systems/ })
     ).toBeInTheDocument();
-    expect(screen.getByText('6 multi-agent, production-grade AI systems shipped')).toBeInTheDocument();
+    expect(
+      screen.getByText(/6 multi-agent, production-grade AI systems shipped/)
+    ).toBeInTheDocument();
   });
 });

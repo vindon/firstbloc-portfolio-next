@@ -24,6 +24,16 @@ const STACK_GROUPS = [
     ],
   },
   {
+    id: 'testing-evals',
+    title: 'Testing & Evals',
+    note: 'How it’s verified',
+    rows: [
+      { name: 'Vitest', desc: 'Unit and component tests for this site and every product console', status: 'live' as const },
+      { name: 'Playwright', desc: 'End-to-end test suites across product consoles', status: 'live' as const },
+      { name: 'Automated eval gates', desc: 'CI-gated evaluation suites for the agent pipelines — PulseGuard, Telecom Call Intelligence, SignalHarvest', status: 'live' as const },
+    ],
+  },
+  {
     id: 'infra-delivery',
     title: 'Infra & Delivery',
     note: 'Where it runs',
@@ -53,7 +63,10 @@ export default function MyStack() {
         <div className="page-head">
           <span className="kicker">/mystack</span>
           <h1>My Stack</h1>
-          <p>What I actually build with — the models, frameworks, and infrastructure.</p>
+          <p>
+            What I actually build with — technologies chosen for observability, cost control, and deterministic
+            reliability in production.
+          </p>
         </div>
 
         {STACK_GROUPS.map((group) => (

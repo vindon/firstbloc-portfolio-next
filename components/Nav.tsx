@@ -12,7 +12,7 @@ export default function Nav() {
       <div className="nav-inner">
         <Link href="/" style={{ display: 'block' }}>
           <span className="brand-name">firstbloc<BrandBlockIcon size={30} /></span>
-          <span className="brand-tag">AI Strategy &amp; Products</span>
+          <span className="brand-tag">Enterprise AI Strategy &amp; CX Automation</span>
         </Link>
         <nav className={`links${open ? ' open' : ''}`}>
           <Link href="/#about" onClick={() => setOpen(false)}>About</Link>

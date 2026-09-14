@@ -12,9 +12,10 @@ function normalizedSiteUrl(): string {
 
 export const siteUrl = normalizedSiteUrl();
 
-export const siteTitle = 'firstbloc — Vinoth Nataraj | AI Strategy, Products & CX Automation';
+export const siteTitle =
+  'firstbloc — Vinoth Nataraj | Enterprise AI Strategy, Agentic Systems & CX Automation';
 export const siteDescription =
-  'AI strategy, agentic products, and CX automation by Vinoth Nataraj. Consulting, product builds, and fractional engagements.';
+  'AI strategy, production multi-agent systems, and CX automation by Vinoth Nataraj. Strategic consulting, hands-on builds, and fractional engagements.';
 
 // Case/whitespace-tolerant: this is set by hand in the Vercel dashboard
 // (Project Settings > Environment Variables), not validated at write time,

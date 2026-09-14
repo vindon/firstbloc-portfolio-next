@@ -8,17 +8,17 @@ describe('SolutionCard', () => {
     const solution = solutions.find((s) => s.id === 'contract')!;
     render(<SolutionCard solution={solution} />);
 
-    expect(screen.getByRole('heading', { name: 'Contractual Employment' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Fractional AI Leadership' })).toBeInTheDocument();
     expect(screen.getByText(solution.description)).toBeInTheDocument();
     solution.items.forEach((item) => {
       expect(screen.getByText(item)).toBeInTheDocument();
     });
   });
 
-  it('renders industry-agnostic copy for the Contractual Employment solution', () => {
+  it('renders industry-agnostic copy for the Fractional AI Leadership solution', () => {
     const solution = solutions.find((s) => s.id === 'contract')!;
     render(<SolutionCard solution={solution} />);
-    expect(screen.getByText('Cross-industry engagements')).toBeInTheDocument();
+    expect(screen.getByText('Bridging business objectives to engineering delivery')).toBeInTheDocument();
     expect(screen.queryByText(/telecom.*financial services focus/i)).not.toBeInTheDocument();
   });
 });

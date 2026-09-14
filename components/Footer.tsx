@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <span className="brand-name">firstbloc<BrandBlockIcon size={30} /></span>
-            <p>AI strategy, agentic products, and CX automation.</p>
+            <p>Enterprise AI strategy, agentic systems, and CX automation.</p>
             <div className="social-icons">
               <a
                 href="https://x.com/vinailead"

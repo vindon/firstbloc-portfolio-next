@@ -6,7 +6,7 @@ describe('About', () => {
   it('renders the section heading', () => {
     render(<About />);
     expect(
-      screen.getByRole('heading', { name: /AI Strategy, Analytics & CX Automation Leader/ })
+      screen.getByRole('heading', { name: /Enterprise Rigor Meets Applied Agentic Engineering/ })
     ).toBeInTheDocument();
   });
 });

@@ -7,7 +7,10 @@ export default function FieldNotes() {
         <div className="page-head">
           <span className="kicker">/fieldnotes</span>
           <h1>Field Notes</h1>
-          <p>Real incidents from real builds — what broke, why, the fix, and the lesson that outlives the project.</p>
+          <p>
+            System Incidents &amp; Architectural Notes — real incidents from real builds: what broke, why, the
+            fix, and the lesson that outlives the project.
+          </p>
         </div>
 
         <div className="note-list">

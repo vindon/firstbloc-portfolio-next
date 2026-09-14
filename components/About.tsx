@@ -8,21 +8,30 @@ export default function About() {
         <div className="about-grid">
           <p className="kicker">About</p>
           <h2 style={{ margin: '14px auto 22px', fontSize: 'clamp(28px, 4vw, 42px)', maxWidth: '16ch' }}>
-            AI Strategy, Analytics &amp; CX Automation Leader
+            Enterprise Rigor Meets Applied Agentic Engineering
           </h2>
           <div className="about-copy">
             <p>
-              I spent close to a decade in consumer credit analytics before leading AI and CX transformation at
-              Verizon, which gives me a foundation most AI builders don&apos;t have: how telecom and financial
-              services actually make decisions under regulation, scale, and cost pressure.
+              I help teams design and deploy AI systems that solve real operational bottlenecks, run reliably in
+              production, and deliver measurable business value. My work combines close to a decade in consumer
+              credit analytics and enterprise CX transformation at Verizon with hands-on multi-agent engineering.
             </p>
             <p>
-              Today I design and build agentic AI systems — multi-agent pipelines, RAG architectures, CX
-              automation — and advise teams on where AI investment actually pays off. Everything I build or
-              recommend has to clear one bar: it solves a real problem, runs in production, and justifies its own
-              cost.
+              <strong>Regulated Scale &amp; Risk:</strong> A deep foundation in how telecom and financial services
+              make decisions under regulatory scrutiny, strict data privacy, and cost pressure.
             </p>
-            <p>Based in Chennai, India. MBA, University of Sheffield.</p>
+            <p>
+              <strong>Production Architecture:</strong> Designing and shipping observable, test-gated agentic
+              pipelines with deterministic fallbacks, PII safeguards, and human-in-the-loop controls.
+            </p>
+            <p>
+              <strong>Grounded Unit Economics:</strong> Prioritizing solutions that justify their compute spend,
+              integrate cleanly with existing workflows, and deliver demonstrable ROI.
+            </p>
+            <p className="font-mono text-xs text-stone-500 pt-2">
+              Based in Chennai, India · MBA, University of Sheffield · Available for Fractional Engagements &amp;
+              Advisory
+            </p>
           </div>
         </div>
       </div>

@@ -7,7 +7,10 @@ export default function Roadmap() {
         <div className="page-head">
           <span className="kicker">/myroadmap</span>
           <h1>Roadmap</h1>
-          <p>What&apos;s shipped, what&apos;s in motion, and what&apos;s next — across every product I&apos;m building.</p>
+          <p>
+            What I build is driven by operational challenges in regulated industries: compliance overhead,
+            unstructured customer contact logs, and signal intelligence.
+          </p>
         </div>
 
         <div className="legend">

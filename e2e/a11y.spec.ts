@@ -42,4 +42,28 @@ test.describe('Accessibility', () => {
     }
     expect([...violations]).toEqual([]);
   });
+
+  // These pages are single-column with no carousel and no .reveal fade-in,
+  // so they don't need the home page's viewport/scroll gymnastics above —
+  // a plain full-height scan covers them.
+  const simplePages = [
+    { name: 'My Stack', path: '/mystack' },
+    { name: 'Roadmap', path: '/myroadmap' },
+    { name: 'Field Notes', path: '/fieldnotes' },
+  ];
+
+  for (const { name, path } of simplePages) {
+    test(`${name} page has no automatically-detectable accessibility violations`, async ({ page }) => {
+      // The cookie-consent banner these pages also render has its own .3s
+      // entrance fade — see the matching note above and in
+      // cookie-consent.spec.ts. Reduced motion avoids sampling it mid-fade.
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      await page.goto(path);
+      const fullHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+      await page.setViewportSize({ width: 1280, height: fullHeight });
+
+      const results = await new AxeBuilder({ page }).analyze();
+      expect(results.violations).toEqual([]);
+    });
+  }
 });

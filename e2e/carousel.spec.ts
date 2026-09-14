@@ -9,11 +9,14 @@ test.describe('Products carousel', () => {
   test('next arrow advances and disables at the last card; prev arrow disables at the first card', async ({ page }) => {
     const prevArrow = page.getByRole('button', { name: 'Previous product' });
     const nextArrow = page.getByRole('button', { name: 'Next product' });
+    // One dot per product — a safe upper bound on the clicks needed to
+    // reach the last card, however many products are in the catalog.
+    const cardCount = await page.locator('.carousel-dot').count();
 
     await expect(prevArrow).toBeDisabled();
     await expect(nextArrow).toBeEnabled();
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < cardCount; i++) {
       if (await nextArrow.isDisabled()) break;
       await nextArrow.click();
       await page.waitForTimeout(400);
@@ -32,15 +35,16 @@ test.describe('Products carousel', () => {
     const prevArrow = page.getByRole('button', { name: 'Previous product' });
     const nextArrow = page.getByRole('button', { name: 'Next product' });
     const track = page.locator('.carousel-track');
+    const cardCount = await page.locator('.carousel-dot').count();
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < cardCount; i++) {
       if (await nextArrow.isDisabled()) break;
       await nextArrow.click();
       await page.waitForTimeout(500);
     }
     await expect(nextArrow).toBeDisabled();
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < cardCount; i++) {
       if (await prevArrow.isDisabled()) break;
       const before = await track.evaluate((el) => el.scrollLeft);
       await prevArrow.click();
@@ -63,7 +67,9 @@ test.describe('Products carousel', () => {
 
   test('dot navigation jumps directly to a card and marks it active', async ({ page }) => {
     const dots = page.locator('.carousel-dot');
-    await expect(dots).toHaveCount(6);
+    // One dot per product, whatever the current catalog size — this test
+    // only needs at least 4 to exercise jumping to a middle card.
+    expect(await dots.count()).toBeGreaterThanOrEqual(4);
 
     await dots.nth(3).click();
     await page.waitForTimeout(800);

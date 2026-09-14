@@ -514,3 +514,26 @@ footer .flinks a:hover{color:var(--accent-deep);}
 .kcard-tag{border:1px solid var(--line-soft); border-radius:var(--radius-pill); padding:3px 9px;}
 .kcard-empty{border:1.5px dashed var(--line-soft); box-shadow:none; background:transparent; padding:20px 18px;}
 .kcard-empty p{margin:0; font-size:13.5px; color:var(--grey);}
+
+.note-list{max-width:720px; margin:0 auto;}
+.note-card{background:var(--card); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); padding:32px 34px; margin-bottom:24px;}
+.note-card:last-child{margin-bottom:0;}
+.note-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;}
+.note-project{
+  font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+  color:#fff; background:var(--accent-secondary); padding:4px 10px; border-radius:var(--radius-pill);
+}
+.note-date{font-family:var(--font-mono); font-size:11px; color:var(--grey-light);}
+.note-card h2{font-size:21px; letter-spacing:-0.01em; margin-bottom:20px;}
+.note-section{border-top:1px solid var(--line-soft); padding:16px 0;}
+.note-section:first-of-type{border-top:none; padding-top:0;}
+.note-label{
+  display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--accent-deep); margin-bottom:6px;
+}
+.note-section p{font-size:14.5px; line-height:1.65; color:var(--grey); margin:0;}
+.note-lesson{background:var(--bg-soft); border-radius:var(--radius); margin:16px -14px -8px; padding:16px 14px; border-top:none;}
+@media(max-width:640px){
+  .note-card{padding:24px 20px;}
+  .note-head{flex-wrap:wrap;}
+}

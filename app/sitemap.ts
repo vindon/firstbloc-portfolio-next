@@ -18,5 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.6,
     },
+    {
+      url: `${siteUrl}/fieldnotes`,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
   ];
 }

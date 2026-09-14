@@ -10,6 +10,7 @@ describe('Nav', () => {
     expect(screen.getByRole('link', { name: 'About' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Products' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Solutions' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Field Notes' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: "Let's talk" })).toBeInTheDocument();
   });
 

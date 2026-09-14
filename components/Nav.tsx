@@ -18,6 +18,7 @@ export default function Nav() {
           <Link href="/#about" onClick={() => setOpen(false)}>About</Link>
           <Link href="/#products" onClick={() => setOpen(false)}>Products</Link>
           <Link href="/#solutions" onClick={() => setOpen(false)}>Solutions</Link>
+          <Link href="/fieldnotes" onClick={() => setOpen(false)}>Field Notes</Link>
           <Link href="/#contact" className="nav-cta" onClick={() => setOpen(false)}>Let&apos;s talk</Link>
         </nav>
         <button className="nav-toggle" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen((v) => !v)}>

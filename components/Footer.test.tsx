@@ -10,6 +10,7 @@ describe('Footer', () => {
     expect(screen.getByRole('link', { name: 'Solutions' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'My Stack' })).toHaveAttribute('href', '/mystack');
     expect(screen.getByRole('link', { name: 'Roadmap' })).toHaveAttribute('href', '/myroadmap');
+    expect(screen.getByRole('link', { name: 'Field Notes' })).toHaveAttribute('href', '/fieldnotes');
     expect(screen.getByText('© 2026 Vinoth Nataraj.')).toBeInTheDocument();
   });
 

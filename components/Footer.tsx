@@ -53,6 +53,7 @@ export default function Footer() {
               <li><Link href="/#solutions">Solutions</Link></li>
               <li><Link href="/mystack">My Stack</Link></li>
               <li><Link href="/myroadmap">Roadmap</Link></li>
+              <li><Link href="/fieldnotes">Field Notes</Link></li>
             </ul>
           </div>
           <div>

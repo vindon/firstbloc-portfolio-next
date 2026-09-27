@@ -1,5 +1,4 @@
-import { products } from '@/lib/products';
-import { deployments } from '@/lib/deployments';
+import { getEnrichedProducts } from '@/lib/product-catalog';
 
 const STACK_GROUPS = [
   {
@@ -57,6 +56,8 @@ const DEPLOY_STATUS_LABEL: Record<'live' | 'building', string> = {
 };
 
 export default function MyStack() {
+  const deployedProducts = getEnrichedProducts().filter((product) => product.deployment !== null);
+
   return (
     <section>
       <div className="wrap">
@@ -89,9 +90,8 @@ export default function MyStack() {
           <h2>Where it&apos;s deployed</h2>
           <p className="deploy-sub">What&apos;s live, where it runs, how it ships, and why that host.</p>
 
-          {deployments.map((deployment) => {
-            const product = products.find((p) => p.id === deployment.productId);
-            if (!product) return null;
+          {deployedProducts.map((product) => {
+            const deployment = product.deployment!;
             return (
               <div className="deploy-item" key={deployment.productId}>
                 <div className="deploy-item-head">

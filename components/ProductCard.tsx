@@ -1,4 +1,5 @@
 import type { Product } from '@/lib/products';
+import { productIcons } from '@/components/icons';
 
 export default function ProductCard({ product }: { product: Product }) {
   const hasDemo = Boolean(product.demoUrl) && product.demoUrl !== '#';
@@ -6,7 +7,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className="product-card">
       <div className="product-card-content">
-        <div className="icon-chip">{product.icon}</div>
+        <div className="icon-chip">{productIcons[product.iconId]}</div>
         <span className={`stage-tag${product.isExploration ? ' explore' : ''}`}>{product.stageTag}</span>
         <h3>{product.title}</h3>
         <div className="problem-box">

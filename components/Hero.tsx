@@ -3,6 +3,9 @@ import GrainOverlay from './GrainOverlay';
 export default function Hero() {
   return (
     <section className="hero section-deco">
+      {/* Decorative art only (CSS background, see .hero-skyline). Rendered before the grain so the
+          shared grain multiplies over it like every other surface in the hero. */}
+      <div className="hero-skyline" aria-hidden="true" />
       <GrainOverlay />
       <div className="wrap">
         <p className="kicker">Enterprise AI Strategy · Agentic Systems · CX Automation</p>

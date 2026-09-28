@@ -37,6 +37,12 @@ is `module` pixels), so all edges line up.
 without changing any spec) reshuffles the whole skyline. `skyline.test.ts` fails if the generator and
 the committed SVGs ever disagree, so a stray edit on either side cannot slip through.
 
+## Spec errors are loud
+
+Landmarks and lots are hand-placed, so a mistake in `specs.mts` throws with the offending `u`/`v`
+instead of quietly dropping the block: `u + v` must be even, and every cell must be inside the grid
+and free. `openPlotChance` needs one entry per back row (`rows - 1`).
+
 ## Constraints
 
 - Output must stay static and script-free (`lib/hero-skyline.test.ts` enforces this on the committed files).

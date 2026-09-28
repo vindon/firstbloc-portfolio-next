@@ -65,6 +65,11 @@ export const cellAt = (u: number, v: number): readonly [x: number, y: number] =>
  */
 export function layoutSkyline(spec: SkylineSpec, random: Random): Building[] {
   const { rows, halfSpan, envelope, maxWidth, maxHeight, openPlotChance } = spec;
+  if (openPlotChance.length < rows - 1) {
+    throw new RangeError(
+      `openPlotChance needs one entry per back row (${rows - 1} for rows: ${rows}), got ${openPlotChance.length}.`,
+    );
+  }
 
   const occupied = new Set<string>();
   const key = (x: number, y: number): string => `${x},${y}`;
@@ -90,15 +95,26 @@ export function layoutSkyline(spec: SkylineSpec, random: Random): Building[] {
 
   const placed: Footprint[] = [];
 
+  // Lots and landmarks are hand-placed, so a bad one is a mistake in specs.mts. Fail loudly instead of
+  // quietly dropping it or drawing it on the wrong part of the grid.
   for (const lot of spec.lots) {
     const [x, y] = cellAt(lot.u, lot.v);
+    if (!Number.isInteger(x) || !Number.isInteger(y) || !isFree(x, y)) {
+      throw new Error(
+        `Lot at u=${lot.u}, v=${lot.v} is not a free grid cell (u + v must be even, inside the grid, and not already taken).`,
+      );
+    }
     occupied.add(key(x, y));
     placed.push({ x, y, w: 1, d: 1, h: 1, lot: true });
   }
 
   for (const { u, v, w, d, h } of spec.landmarks) {
     const [x, y] = cellAt(u, v);
-    if (!Number.isInteger(x) || !Number.isInteger(y) || !fits(x, y, w, d)) continue;
+    if (!Number.isInteger(x) || !Number.isInteger(y) || !fits(x, y, w, d)) {
+      throw new Error(
+        `Landmark at u=${u}, v=${v} (${w} × ${d}) does not fit (u + v must be even, and every cell must be inside the grid and free).`,
+      );
+    }
     claim(x, y, w, d);
     placed.push({ x, y, w, d, h, lot: false });
   }

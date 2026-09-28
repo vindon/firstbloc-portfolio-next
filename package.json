@@ -14,6 +14,7 @@
     "test:e2e": "playwright test",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "hero:generate": "node scripts/hero-skyline/generate.mts",
     "verify": "npm run lint && npm run typecheck && npm run test && npm run build && npm run test:e2e"
   },
   "dependencies": {

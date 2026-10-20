@@ -3,6 +3,9 @@ import GrainOverlay from './GrainOverlay';
 export default function Hero() {
   return (
     <section className="hero section-deco">
+      {/* Decorative art only (CSS background, see .hero-skyline). Rendered before the grain so the
+          shared grain multiplies over it like every other surface in the hero. */}
+      <div className="hero-skyline" aria-hidden="true" />
       <GrainOverlay />
       <div className="wrap">
         <p className="kicker">Enterprise AI Strategy · Agentic Systems · CX Automation</p>
@@ -19,7 +22,7 @@ export default function Hero() {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
             <path d="M20 6 9 17l-5-5" />
           </svg>
-          6 multi-agent, production-grade AI systems shipped · 10+ years enterprise analytics &amp; CX leadership
+          13 years enterprise analytics &amp; CX leadership
         </div>
       </div>
     </section>

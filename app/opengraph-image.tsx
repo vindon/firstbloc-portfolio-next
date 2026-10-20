@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { isComingSoon } from '@/lib/site';
+import BrandPrism from '@/lib/brandPrism';
 
 export const alt = 'firstbloc — Enterprise AI Strategy, Agentic Systems & CX Automation';
 export const size = { width: 1200, height: 630 };
@@ -25,8 +26,11 @@ export default function OpengraphImage() {
           background: gradientWarm,
         }}
       >
-        <div style={{ display: 'flex', fontSize: 32, fontWeight: 800, color: '#1F1F1F', letterSpacing: -1.5 }}>
-          firstbloc
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <div style={{ display: 'flex', fontSize: 32, fontWeight: 800, color: '#1F1F1F', letterSpacing: -1.5 }}>
+            firstbloc
+          </div>
+          <BrandPrism size={36} />
         </div>
         <div
           style={{

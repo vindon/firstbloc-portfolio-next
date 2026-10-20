@@ -13,7 +13,7 @@ export default function About() {
           <div className="about-copy">
             <p>
               I help teams design and deploy AI systems that solve real operational bottlenecks, run reliably in
-              production, and deliver measurable business value. My work combines close to a decade in consumer
+              production, and deliver measurable business value. My work combines 13 years in consumer
               credit analytics and enterprise CX transformation at Verizon with hands-on multi-agent engineering.
             </p>
             <p>

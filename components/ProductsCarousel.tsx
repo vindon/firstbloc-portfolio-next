@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { products } from '@/lib/products';
+import { clampIndex, computeActiveIndex, computeScrollTarget } from '@/lib/carousel';
 import ProductCard from './ProductCard';
 
 export default function ProductsCarousel() {
@@ -14,38 +15,12 @@ export default function ProductsCarousel() {
     const track = trackRef.current;
     if (!track) return;
 
-    // Multi-threshold + max-ratio-wins: at desktop widths, two cards can be
-    // simultaneously visible, so a single threshold can fire on more than
-    // one card in the same viewport. Tracking each card's latest ratio and
-    // picking the highest keeps the active index correct regardless of how
-    // many cards are visible at once. Scroll-boundary detection is checked
-    // first (forces index 0/last at the true start/end) since ratio ties
-    // are unavoidable there at wide viewports; ratio-tiebreak handles
-    // interior positions. Ties (equal ratios) favor the lower index, which
-    // in practice means the leading/most-progressed card wins.
     const updateActiveIndex = () => {
       const trackEl = trackRef.current;
       if (!trackEl) return;
 
       const maxScroll = trackEl.scrollWidth - trackEl.clientWidth;
-      if (trackEl.scrollLeft <= 1) {
-        setActiveIndex(0);
-        return;
-      }
-      if (trackEl.scrollLeft >= maxScroll - 1) {
-        setActiveIndex(products.length - 1);
-        return;
-      }
-
-      let maxIndex = 0;
-      let maxRatio = -1;
-      ratiosRef.current.forEach((ratio, i) => {
-        if (ratio > maxRatio) {
-          maxRatio = ratio;
-          maxIndex = i;
-        }
-      });
-      setActiveIndex(maxIndex);
+      setActiveIndex(computeActiveIndex(ratiosRef.current, trackEl.scrollLeft, maxScroll));
     };
 
     const observer = new IntersectionObserver(
@@ -87,36 +62,26 @@ export default function ProductsCarousel() {
   }, []);
 
   const scrollToIndex = (index: number) => {
-    const clampedIndex = Math.max(0, Math.min(index, products.length - 1));
+    const clampedIndex = clampIndex(index, products.length);
     const track = trackRef.current;
     const card = cardRefs.current[clampedIndex];
     if (!card || !track) return;
 
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    // Cards are centered (scroll-snap-align: center), so the scroll target
-    // is the card's offset minus half the leftover space between the card
-    // and the track's visible width - not a flush-left offset.
-    const rawTarget = card.offsetLeft - track.offsetLeft - (track.clientWidth - card.offsetWidth) / 2;
-    const clampedTarget = Math.max(0, Math.min(rawTarget, maxScroll));
+    const firstCard = cardRefs.current[0];
+    const secondCard = cardRefs.current[1];
+    const cardStep = firstCard && secondCard ? secondCard.offsetLeft - firstCard.offsetLeft : card.offsetWidth;
 
-    let target = clampedTarget;
-
-    // At either end of the track, more than one card can be fully visible
-    // at once, so a card's own "flush-left" scroll position can fall past
-    // what's actually scrollable and clamp back onto wherever we already
-    // are — e.g. clicking "prev" from the fully-scrolled-right state was a
-    // no-op, because the target card's true offset exceeded maxScroll and
-    // clamped straight back to the current position. When the clamped
-    // target doesn't move us but the caller asked for a different index,
-    // step by one card-width in the requested direction instead, so
-    // navigation always makes visible progress.
-    if (Math.abs(clampedTarget - track.scrollLeft) < 2 && clampedIndex !== activeIndex) {
-      const firstCard = cardRefs.current[0];
-      const secondCard = cardRefs.current[1];
-      const step = firstCard && secondCard ? secondCard.offsetLeft - firstCard.offsetLeft : card.offsetWidth;
-      const direction = clampedIndex > activeIndex ? 1 : -1;
-      target = Math.max(0, Math.min(track.scrollLeft + direction * step, maxScroll));
-    }
+    const target = computeScrollTarget({
+      cardOffsetLeft: card.offsetLeft,
+      cardOffsetWidth: card.offsetWidth,
+      trackOffsetLeft: track.offsetLeft,
+      trackClientWidth: track.clientWidth,
+      trackScrollLeft: track.scrollLeft,
+      maxScroll: track.scrollWidth - track.clientWidth,
+      clampedIndex,
+      activeIndex,
+      cardStep,
+    });
 
     track.scrollTo({ left: target, behavior: 'smooth' });
   };

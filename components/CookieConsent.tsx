@@ -8,6 +8,26 @@ type Status = 'checking' | 'undecided' | 'accepted' | 'declined';
 const STORAGE_KEY = 'firstbloc-cookie-consent';
 const beaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
 
+// Browsers throw on any localStorage access when site data is blocked
+// (SecurityError) and on writes when storage is full (QuotaExceededError).
+// Both are routine for visitors, so a failed read means "no stored choice"
+// and a failed write only means the choice lasts until the page closes.
+function readStoredChoice(): string | null {
+  try {
+    return window.localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function storeChoice(value: 'accepted' | 'declined') {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, value);
+  } catch {
+    // The in-memory status below still applies this session.
+  }
+}
+
 export default function CookieConsent() {
   const [status, setStatus] = useState<Status>('checking');
 
@@ -18,13 +38,13 @@ export default function CookieConsent() {
     // genuinely needs an effect, not a lazy useState initializer or
     // useSyncExternalStore (whose same-tab writes don't fire the storage
     // event needed to pick up this component's own `choose()`).
-    const stored = window.localStorage.getItem(STORAGE_KEY);
+    const stored = readStoredChoice();
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setStatus(stored === 'accepted' || stored === 'declined' ? stored : 'undecided');
   }, []);
 
   const choose = (value: 'accepted' | 'declined') => {
-    window.localStorage.setItem(STORAGE_KEY, value);
+    storeChoice(value);
     setStatus(value);
   };
 

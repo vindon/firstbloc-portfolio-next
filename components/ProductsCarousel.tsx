@@ -101,7 +101,7 @@ export default function ProductsCarousel() {
       <div className="wrap">
         <div className="section-head reveal">
           <p className="kicker">Products</p>
-          <h2>Six systems. Six real problems. Built to ship.</h2>
+          <h2>Built to ship.</h2>
           <p>Every product here started from a specific operational gap I saw firsthand in telecom CX or financial services.</p>
         </div>
 

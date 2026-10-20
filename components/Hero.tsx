@@ -22,7 +22,7 @@ export default function Hero() {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
             <path d="M20 6 9 17l-5-5" />
           </svg>
-          6 multi-agent, production-grade AI systems shipped · 10+ years enterprise analytics &amp; CX leadership
+          10+ years enterprise analytics &amp; CX leadership
         </div>
       </div>
     </section>

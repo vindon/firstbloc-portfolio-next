@@ -9,8 +9,9 @@ describe('Hero', () => {
       screen.getByRole('heading', { level: 1, name: /Bridging Enterprise Reality with Production AI Systems/ })
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/6 multi-agent, production-grade AI systems shipped/)
+      screen.getByText(/10\+ years enterprise analytics & CX leadership/)
     ).toBeInTheDocument();
+    expect(screen.queryByText(/multi-agent, production-grade AI systems shipped/)).not.toBeInTheDocument();
   });
 
   it('renders the skyline as decorative art hidden from assistive tech', () => {

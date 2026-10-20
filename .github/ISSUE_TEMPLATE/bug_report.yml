@@ -1,0 +1,46 @@
+name: Bug report
+description: Report a problem with the portfolio site
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For security vulnerabilities, do not open a public issue. Follow the private reporting instructions in [SECURITY.md](https://github.com/vindon/firstbloc-portfolio-next/blob/master/SECURITY.md).
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: What happened, and what did you expect to happen?
+      placeholder: A clear description of the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: List the steps needed to reproduce the issue.
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include device, operating system, browser, and screen size if relevant.
+      placeholder: e.g. iPhone 15, iOS 18, Safari
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or recordings
+      description: Add screenshots or recordings if they help explain the issue.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked that this is not a security vulnerability report.
+          required: true

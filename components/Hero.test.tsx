@@ -9,7 +9,7 @@ describe('Hero', () => {
       screen.getByRole('heading', { level: 1, name: /Bridging Enterprise Reality with Production AI Systems/ })
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/10\+ years enterprise analytics & CX leadership/)
+      screen.getByText(/13 years enterprise analytics & CX leadership/)
     ).toBeInTheDocument();
     expect(screen.queryByText(/multi-agent, production-grade AI systems shipped/)).not.toBeInTheDocument();
   });

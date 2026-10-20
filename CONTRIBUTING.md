@@ -42,13 +42,14 @@ each platform's baselines.
 2. Keep changes focused and use clear commit messages.
 3. Open a pull request against `master`, complete the pull request template,
    and link any related issue.
-4. Make sure CI and CodeQL checks pass, address review feedback, and obtain
-   approval from a reviewer before merging.
+4. Make sure CI and CodeQL checks pass and address any review feedback before
+   merging.
 
-The `master` branch is protected on GitHub: changes must come through a pull
-request with one approval, the `verify` and `analyze` checks passing, and the
-branch up to date with its base. Stale approvals are dismissed, and the rules
-also apply to administrators.
+The `master` branch is protected on GitHub: changes must come through a
+pull request with the `verify` and `analyze` checks passing and the branch
+up to date with its base. Reviews are encouraged but not required; this
+repository is maintained by an individual, so pull requests may be merged by
+their author after required checks pass.
 
 Pull requests should explain the problem and solution, call out user-visible
 changes, and include screenshots for visual changes. Add or update tests for

@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import BrandPrism from '@/lib/brandPrism';
 
 export const size = { width: 180, height: 180 };
 export const contentType = 'image/png';
@@ -16,7 +17,7 @@ export default function AppleIcon() {
           background: '#1F1F1F',
         }}
       >
-        <div style={{ display: 'flex', color: '#FF4800', fontSize: 100, fontWeight: 800 }}>B</div>
+        <BrandPrism size={112} />
       </div>
     ),
     { ...size }
